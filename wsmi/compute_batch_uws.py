@@ -4,10 +4,10 @@ import os
 import sys
 
 #listamos todos los archivos de una determinada categoria y los words
-categoria = 'Healthy'
+categoria = 'UWS'
 words = ['word1', 'word2', 'word4']
-files = glob.glob('../data/dataset_all/' + categoria + '/*.mat')
-progress = open('progreso.txt', 'r').read()
+files = glob.glob('../../data/dataset_all/' + categoria + '/*.mat')
+progress = open('progreso_uws.txt', 'r').read()
 
 #iteramos sobre cada paciente y cada word que no haya sido aun procesado
 for subject in files:
@@ -16,4 +16,4 @@ for subject in files:
         continue
     for w in words:
         computeWSMI(subject, w, categoria)
-    f = open("progreso.txt", "a").write(subject_filename + ',')
+    f = open("progreso_uws.txt", "a").write(subject_filename + ',')

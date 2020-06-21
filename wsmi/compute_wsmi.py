@@ -15,9 +15,9 @@ def computeWSMI(file_to_compute, word_to_compute, categoria):
     MAT_FULLNAME = file_to_compute
     MAT_BASENAME = op.basename(MAT_FULLNAME).split('.')[0]
     MAT_VAR = word_to_compute
-    FIF_FILENAME = 'data/'+categoria+'/'+ MAT_BASENAME +'-'+ word_to_compute +'-epo.fif'
-    HDF5_FILENAME = 'data/'+categoria+'/'+ MAT_BASENAME +'-'+ word_to_compute +'-markers.hdf5'
-    MAT_OUTPUT = 'data/'+categoria+'/'+ MAT_BASENAME +'-'+ word_to_compute +'-wsmi.mat'
+    FIF_FILENAME = '../data/'+categoria+'/'+ MAT_BASENAME +'-'+ word_to_compute +'-epo.fif'
+    HDF5_FILENAME = '../data/'+categoria+'/'+ MAT_BASENAME +'-'+ word_to_compute +'-markers.hdf5'
+    MAT_OUTPUT = '../data/'+categoria+'/'+ MAT_BASENAME +'-'+ word_to_compute +'-wsmi.mat'
 
     start_time = time.time()
 
