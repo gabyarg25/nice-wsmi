@@ -22,3 +22,9 @@ word = word1, word2, word4
 Grafica un histograma por categoria por word que es el promedio de todos los pacientes de esa categoria  
 categoria = Healthy, UWS, MCS  
 word = word1, word2, word4
+
+## variances
+Computa las varianzas de todos las matrices de un grupo y word seleccionado. Las guarda en un archivo
+
+## bandpass
+Aplica un filtro pasa banda y subsamplea todas las series de la categoria definida
