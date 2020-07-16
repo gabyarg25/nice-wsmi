@@ -9,8 +9,8 @@ pathfrom = strcat('../../data/dataset_all/', categoria);
 
 addpath /home/usuario/Descargas/eeglab2019_1
 
-hpfreq = 0.1;
-lpfreq = 40;
+hpfreq = 8;
+lpfreq = 20;
 for i=1:length(filenames)
     display(strcat('Computando ...', filenames{i}))
         file_wo_ext = strsplit(filenames{i}, '.');
@@ -49,8 +49,3 @@ for i=1:length(filenames)
 
     
 end
-
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes

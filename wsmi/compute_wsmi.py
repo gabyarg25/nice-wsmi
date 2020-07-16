@@ -25,14 +25,14 @@ def computeWSMI(file_to_compute, word_to_compute, categoria):
     print('Loading mat file: ' + MAT_BASENAME + " - " + word_to_compute)
     #Esto no funciona para mat de ciertas versiones
     #se importa como samples x channel
-    #healthy = {}
-    #sio.loadmat(MAT_FILENAME, healthy)
-    #healthyData = np.array(healthy[MAT_VAR])
+    healthy = {}
+    sio.loadmat(MAT_FULLNAME, healthy)
+    healthyData = np.array(healthy[MAT_VAR])
 
     #Esto funciona para mat version 7.3
     #pero este nuevo metodo importa channel x samples entonces transponemos para mantener todo consistente
-    with h5py.File(MAT_FULLNAME, 'r') as f:
-        healthyData = np.array(f[MAT_VAR]).transpose()
+    #with h5py.File(MAT_FULLNAME, 'r') as f:
+    #    healthyData = np.array(f[MAT_VAR]).transpose()
 
     #eliminamos la ultima columna, es decir, el canal Cz
     healthyData = np.delete(healthyData, 256, 1)
@@ -45,7 +45,7 @@ def computeWSMI(file_to_compute, word_to_compute, categoria):
     info['description'] = 'egi/256'
 
     #hacemos reshape para que quede trials x samples x channel
-    healthyData = np.reshape(healthyData, (30,16000,256))
+    healthyData = np.reshape(healthyData, (30,4000,256))
 
     #transponemos para que quede trials x channels x samples
     healthyData = np.transpose(healthyData, (0, 2, 1))
@@ -60,7 +60,7 @@ def computeWSMI(file_to_compute, word_to_compute, categoria):
     #computamos wsmi
     m_list = [
         SymbolicMutualInformation(
-        tmin=None, tmax=0.6, method='weighted', backend='python',
+        tmin=None, tmax=0.6, method='weighted', backend='python', tau=16,
         method_params={'nthreads': 'auto', 'bypass_csd': False}, comment='weighted'),
     ]
 

@@ -6,7 +6,7 @@ import sys
 #listamos todos los archivos de una determinada categoria y los words
 categoria = 'Healthy'
 words = ['word1', 'word2', 'word4']
-files = glob.glob('../../data/dataset_all/' + categoria + '/*.mat')
+files = glob.glob('../../data/dataset_filter/' + categoria + '/*.mat')
 progress = open('progreso.txt', 'r').read()
 
 #iteramos sobre cada paciente y cada word que no haya sido aun procesado
